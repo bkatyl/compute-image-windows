@@ -65,7 +65,7 @@ function Install-MSI {
 
   Write-Output "${operation}ing OpenSSH from: $Path"
 
-  $msi_install = Start-Process C:\Windows\System32\msiexec.exe -ArgumentList "$action","`"$path`"","/qn" -wait -PassThru
+  $msi_install = Start-Process C:\Windows\System32\msiexec.exe -ArgumentList "$action","`"$Path`"","/qn" -wait -PassThru
   $msi_exit_code = $msi_install.ExitCode
   if ($msi_exit_code -ne 0) {
     Write-Output "MSI $operation Failed: Exit Code: $msi_exit_code"
