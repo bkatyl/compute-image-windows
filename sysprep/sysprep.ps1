@@ -167,7 +167,7 @@ function Test-Admin {
 if (-not(Test-Admin)) {
   $script:show_msgs = $true
   Write-Log 'Script is not running in a elevated prompt.'
-  Write-Log 'Re-running as Administrator.'
+  Write-Log 'Please re-run as Administrator.'
   Write-LogError
 
   # Exit from the current, unelevated, process.
