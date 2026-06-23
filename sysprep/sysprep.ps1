@@ -167,7 +167,7 @@ function Test-Admin {
 if (-not(Test-Admin)) {
   $script:show_msgs = $true
   Write-Log 'Script is not running in a elevated prompt.'
-  Write-Log 'Re-running as Administrator.'
+  Write-Log 'Please re-run the script as Administrator.'
   $command_definition = $MyInvocation.MyCommand.Definition
   $script_args = @('-ExecutionPolicy', 'Unrestricted', '-File', "`"$command_definition`"")
   foreach ($arg_name in $PSBoundParameters.Keys) {
