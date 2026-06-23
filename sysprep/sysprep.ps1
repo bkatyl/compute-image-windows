@@ -168,22 +168,6 @@ if (-not(Test-Admin)) {
   $script:show_msgs = $true
   Write-Log 'Script is not running in a elevated prompt.'
   Write-Log 'Re-running as Administrator.'
-  $command_definition = $MyInvocation.MyCommand.Definition
-  $script_args = @('-ExecutionPolicy', 'Unrestricted', '-File', "`"$command_definition`"")
-  foreach ($arg_name in $PSBoundParameters.Keys) {
-    $value = $PSBoundParameters[$arg_name]
-    $script_args = $script_args + @("-$arg_name", "`"$value`"")
-  }
-
-  $new_process = New-Object System.Diagnostics.ProcessStartInfo 'PowerShell'
-  $new_process.Arguments = $script_args
-  $new_process.WorkingDirectory = $Pwd.Path
-
-  # Indicate that the process should be elevated.
-  $new_process.Verb = 'runas'
-
-  # Start the new process.
-  [System.Diagnostics.Process]::Start($new_process)
 
   # Exit from the current, unelevated, process.
   exit
