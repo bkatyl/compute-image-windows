@@ -168,9 +168,10 @@ if (-not(Test-Admin)) {
   $script:show_msgs = $true
   Write-Log 'Script is not running in a elevated prompt.'
   Write-Log 'Re-running as Administrator.'
+  Write-LogError
 
   # Exit from the current, unelevated, process.
-  exit
+  exit 1
 }
 
 Write-Log 'Beginning GCESysprep.'
